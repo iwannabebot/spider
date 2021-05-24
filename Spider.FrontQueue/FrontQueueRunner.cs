@@ -15,7 +15,7 @@ namespace Spider.FrontQueue
         static readonly ConcurrentQueue<UrlQueueItem> _urlQueue = ThreadSafeFactory.UrlQueue();
         static readonly IPolitenessPolicy _politenessPolicy = PolicyFactory.DefaultPolitenessPolicy();
         static readonly int maxThread = Environment.ProcessorCount * 3;
-        static void Main(string[] args)
+        static void Main(string[] seed)
         {
 
             Console.WriteLine("====== FRONT QUEUE ======");
@@ -24,7 +24,10 @@ namespace Spider.FrontQueue
 
             Console.WriteLine("Socket initialized");
 
-            _urlQueue.Enqueue(new UrlQueueItem { Url = "https://monzo.com/" });
+            foreach (var s in seed)
+            {
+                _urlQueue.Enqueue(new UrlQueueItem { Url = s });
+            }
             var backQueueProcessor = Task.Run(() =>
             {
                 // Receive from backqueue

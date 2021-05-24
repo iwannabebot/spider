@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Spider.FrontQueue": {
+      "commandName": "Project",
+      "commandLineArgs": "https://monzo.com/"
+    }
+  }
+}
