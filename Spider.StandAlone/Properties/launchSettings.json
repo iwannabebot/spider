@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "Spider.StandAlone": {
-      "commandName": "Project",
-      "commandLineArgs": "\"https://monzo.com/\""
-    }
-  }
-}
